@@ -50,3 +50,13 @@
 
 1. Last-Modify/If-Modify-Since：浏览器会根据资源的最后修改时间判断是否命中缓存，如果命中缓存，则返回 304，并且不会返回资源内容，并且不会返回 Last-Modify。
 2. Etag/If-None-Match：Etag/If-None-Match 是“实体标签”（Entity Tag）的缩写，是资源的一个唯一标识，资源变化都会导致 ETag 变化。
+
+## 为什么将 css 放在头部，js 放在尾部可以增加页面的性能？
+
+现在浏览器为了更好的用户体验，渲染引擎会尝试尽快在屏幕上显示内容，它不会等到所有的 HTML 元素解析之后再构建和布局`dom树`，所以部分内容会被解析并显示。也就是说浏览器能够**渲染不完整的 dom 树和 cssom**，尽快的减少白屏时间。
+
+css 放头部：在加载 html 生成 DOM tree 的时候，就可以同时对 DOM tree 进行渲染，这样可以防止闪跳，白屏或者布局混乱。
+
+js 放底部：假如我们将 js 放在 header，js 将阻塞解析 dom，dom 的内容会影响到 dom 树的绘制，导致 dom 绘制延后。
+
+所以说我们会将 js 放在后面，以减少 dom 绘制的时间，但是不会减少 DOMContentLoaded（dom 内容加载完毕） 被触发的时间。
