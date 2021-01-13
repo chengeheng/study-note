@@ -111,7 +111,3 @@ p {
 ![](https://cdn.nlark.com/yuque/0/2020/png/2340220/1598117589077-b52ddda7-b331-4ed9-af08-1cebc6b68fe3.png#align=left&display=inline&height=220&margin=%5Bobject%20Object%5D&originHeight=220&originWidth=316&size=0&status=done&style=none&width=316)
 
 这个方法可以用来实现两列自适应布局，左边宽度固定，右边的内容自适应宽度。
-
-| 值班人员 | 星期一 | 星期二 | 星期三 |
-| -------- | ------ | ------ | ------ |
-| 李强     | 张明   | 王平   |
