@@ -32,11 +32,17 @@ React 是一个网页 UI 框架，通过组件化的方式解决视图层开发�
 
 2. 跨平台
 
+// TODO 补充 diff 算法的内容
+
+## React 的 diff
+
 ## React 项目中有哪些细节可以优化？实际开发中都做过哪些性能优化？
 
-- 保证数据的不可变性：React.useMemo 和 React.useCallback 减少不必要的渲染
-- class 组件的 shouldComponentUpdate 做深处理比较
+- 保证数据的不可变性：`React.memo` 、`useMemo`、`useCallback` 减少不必要的渲染
+- class 组件的 `shouldComponentUpdate` 做深处理比较
 - 不要在 render 中处理数据
+
+主要途径：减少 render 次数和减少计算量
 
 ## React16 有什么新特性
 
@@ -51,6 +57,10 @@ React 是一个网页 UI 框架，通过组件化的方式解决视图层开发�
 
 - 使用 Fiber 重写了核心算法，实现了 hook 机制
 
+1. 生命周期有什么变化
+
+`componentWillMount`，`componentWillReceiveProps`，`componentWillUpdate` 准备废除，新增了 `static getDerivedStateFromProps` 和 `getSnapshotBeforeUpdate`
+
 ## 类组件和函数组件的区别
 
 使用和呈现上并没有什么不同，性能上在现代浏览器中也不会有明显差异
@@ -62,3 +72,8 @@ React 是一个网页 UI 框架，通过组件化的方式解决视图层开发�
 - 类组件由于生命周期带来的复杂度，并不易于优化；而函数组件本身轻量简单，且在 hooks 的基础上提供了比原先更细粒度的逻辑组织与复用，更能适应 React 的未来发展
 
 > react 官方更推荐“组合优于继承”的设计概念，所以更推荐函数式组件
+
+## React 事件机制
+
+1. React 为什么要用合成事件
+2. 事件机制：注册和分发的过程
